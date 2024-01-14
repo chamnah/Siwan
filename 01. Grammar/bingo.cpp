@@ -66,13 +66,19 @@ int board[PlayerType::END][board_max];
 
 board[PlayerType::AI][0];
 
-void CreateBoard(PlayerType type)
+int CreateBoard(PlayerType type, int a)
 {
 	board[type];
+	return 0;
 }
 
 /*
 1/13 숙제
 1. 빙고 - 함수화하기 ex)코드 중복된거 최대한 줄여보기
 2. 빙고 - AI 입력하기 + 플레이어처럼
+*/
+
+/*
+1/14 숙제
+함수화하기 - 정답없음
 */
