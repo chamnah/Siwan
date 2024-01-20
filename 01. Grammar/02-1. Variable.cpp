@@ -91,6 +91,8 @@ void main()
 	// 음수를 표현하지 않고 양수를 더 큰 범위까지 저장할 수 있다.
 	//unsigned int temp = 42억;
 	unsigned short temp;
+	10; // -부호
+
 	short temp;
 
 	/*

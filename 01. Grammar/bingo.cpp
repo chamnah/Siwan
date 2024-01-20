@@ -82,3 +82,7 @@ int CreateBoard(PlayerType type, int a)
 1/14 숙제
 함수화하기 - 정답없음
 */
+
+int* bingoerr
+
+bingoerr

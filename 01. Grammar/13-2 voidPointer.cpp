@@ -1,12 +1,13 @@
 #include <iostream>
 
+
 int main()
 {
 	//void temp;
 
 	int; bool; float;
 
-	void* ptr;
+	void* ptr; // 64∫Ò∆Æ 8byte / 32bit 4byte
 	bool* ptrBool;
 
 	int a = 0;

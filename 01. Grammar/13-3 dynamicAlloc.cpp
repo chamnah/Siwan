@@ -5,7 +5,8 @@ int main()
 	/*
 	동적 (메모리)할당 : dynamic alloc(할당)
 	- 런타임(프로그램 실행 중) - 메모리 할당
-	
+	- 사용자가 원할 때 할당
+
 	정적 (메모리)할당
 	- 컴파일 단계에서 미리 할당
 	*/
@@ -19,11 +20,24 @@ int main()
 	}
 
 	/*
+	시완이 집 : 경남 진주시 00구 00동 00 - 00번지
+
+	시완이 집
+
+
+	C언어 -> 확장판 C++
+	C/C++
 	C 스타일
 	C++ 스타일
 	*/
 
 	// C 스타일
+	//malloc(12); // 12바이트만큼 동적할당
+
+	int* ptr = static_cast<int*>(malloc(8));
+	*ptr = 10;
+	free(ptr); //메모리 해제
+
 	/*
 	int* ptr = static_cast<int*>(malloc(4)); // memory alloc
 	free(ptr); // 자유
