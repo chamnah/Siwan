@@ -117,6 +117,9 @@
     <ClCompile Include="test_func.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="testPointer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="library.h">
