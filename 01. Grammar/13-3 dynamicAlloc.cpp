@@ -34,10 +34,13 @@ int main()
 	// C 스타일
 	//malloc(12); // 12바이트만큼 동적할당
 
-	int* ptr = static_cast<int*>(malloc(8));
+	/*int* ptr = static_cast<int*>(malloc(8));
 	*ptr = 10;
-	free(ptr); //메모리 해제
+	free(ptr);*/ //메모리 해제
 
+	//동적할당 시켜서 20바이트 크기로 할당
+	//int*를 이용해서 배열 5개짜리처럼 사용하여
+	//4,5,6,7,8
 	/*
 	int* ptr = static_cast<int*>(malloc(4)); // memory alloc
 	free(ptr); // 자유
@@ -60,7 +63,7 @@ int main()
 	*/
 	// 윈도우 버전 낮거나 / 리눅스 / Mac / 안드로이드 / ios
 	
-	int a[10];
+	//int a[10];
 	/*
 	숙제
 	- 가변 배열 함수 만들기
@@ -73,5 +76,15 @@ int main()
 	   3. 기존 배열은 해제하기
 	*/
 
+
+	/*int* ptr = static_cast<int*>(malloc(20));
+
+	for (int i = 0; i < 5; i++)
+	{
+		ptr[i] = i + 4;
+		std::cout << ptr[i];
+	}
+
+	free(ptr);*/
 	return 0;
 }

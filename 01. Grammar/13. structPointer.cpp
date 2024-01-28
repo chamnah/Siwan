@@ -5,11 +5,15 @@ struct tagTemp
 	int a;
 	int b;
 	int c;
-
 };
 
 void main()
 {
+	tagTemp temp;
+	temp.a = 10;
+
+
+
 	tagTemp temp;
 	temp.a = 10;
 	temp.b;

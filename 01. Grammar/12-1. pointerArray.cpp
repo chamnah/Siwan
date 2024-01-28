@@ -53,4 +53,22 @@ int main()
 	}
 	
 	return 0;
+
+
+	/*
+	
+	int arr[10] = {1,2,3,4,5};
+
+	int* ptrA;
+
+	ptrA = arr;
+	ptrA = &arr[3];
+	ptrA = arr[3];
+	ptrA + 1;
+
+	short* ptrB
+
+
+	*/
+
 }
