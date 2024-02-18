@@ -50,6 +50,13 @@ int main()
 		int select = 0; // 4byte
 		cout << "1. 학생 추가 2. 학생 삭제 3. 학생 검색 4. 전체 출력" << endl;
 		cin >> select;
+		
+		if (cin.fail()) // cin 입력 실패
+		{
+			cin.clear(); // cin 입력 실패 내용을 제거
+			// cin에 엔터(\n)의 입력이 남은 상태라서 제거 / 안하면 계속 엔터눌림
+			cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n'); 
+		}
 
 		switch (select)
 		{

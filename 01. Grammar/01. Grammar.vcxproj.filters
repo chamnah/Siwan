@@ -123,6 +123,9 @@
     <ClCompile Include="15.student.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="16.reference.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="library.h">
