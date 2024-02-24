@@ -17,7 +17,7 @@ int main()
 
 
 	*/
-
+	/*
 	int a = 10;
 	int b = 20;
 	int* pA = &a;
@@ -28,12 +28,12 @@ int main()
 	/*refA = b;
 	Func(b);*/
 	//cout << b << endl;
-
+	/*
 	cout << "pA 주소 :" << &pA << endl;
 	cout << "a 주소 :" << &a << endl;
 	cout << "refA 주소 :" << &refA << endl;
 
-
+	*/
 	/*int a = 50;
 	int b = 70;*/
 	//Func(a, b);
@@ -44,9 +44,34 @@ int main()
 
 	/*
 	숙제 : 복습~!!!
-	
 	*/
 
+	//레퍼런스
 
+	int a = 0; // 4byte int 변수
+	int b = 0;
+	int& refA = a; // a라는 변수 참조
+	refA = 20; // 참조한 a의 값을 20으로 변경
+	refA = b; // a = b;
+
+	int* ptr;
+	const int& refB = b; //무조건 참조를 시켜야한다.
+	
+	cout << a << endl;
+	/*
+	const int const* const tempA = nullptr;
+
+	const int* tempB = nullptr;
+	*tempB = 20;
+	tempB = &a;
+
+	int const* tempC = nullptr;
+	*tempC = 20;
+	tempC = &a;
+
+	int* const tempD = nullptr;
+	*tempD = 20;
+	tempD = &a;
+	*/
 	return 0;
 }
