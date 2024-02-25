@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>
+#pragma execution_character_set("utf-8")
 using namespace std;
 
 #define BOARD_WIDTH 40
@@ -31,6 +32,7 @@ void SetBoard(const Object& obj) // 복사비용 아끼기 위해 레퍼런스 사용
 
 int main()
 {
+	SetConsoleOutputCP(65001);
 	system("mode con:cols=80 lines=45"); // 창크기 설정
 
 	CONSOLE_CURSOR_INFO cursorInfo;
@@ -90,7 +92,7 @@ int main()
 	return 0;
 }
 
-// 숙제
+// 02/24 숙제
 /*
 1. 모든 방향 이동되게 만들기
 2. 게임 판 밖으로 나가지 않게 막기
@@ -98,7 +100,7 @@ int main()
 4. 적 비행기 만들기 - Object 구조체 활용
 5. 게임판 꾸미기 - 경계 만들기
 
-=============================
+=================>-0-<========
 |                           |
 |                           |
 |                           |
@@ -108,6 +110,18 @@ int main()
 |                           |
 |                           |
 =============================
+
+
+// 02/25 숙제
+1. 경계선 안으로만 이동 되도록 수정(플레이어, 적)
+2. 함수화 - 용도별로
+3. 총알만들기
+   - 스페이스바를 누르면, 총알이 생성 후 이동
+     < 생성 : 플레이어 위치에서 생성
+	 < 위쪽 방향으로 계속 이동
+	 < 만약 경계선에 도달한다면 총알 제거
+4. 총알과 적이 부딪히면 적 제거 + 총알 제거 +알파 (시간 남으면 해보기)
+5. 필수 숙제 : 복습 - cpp파셔서 직접 만들어보기
 */
 
 
