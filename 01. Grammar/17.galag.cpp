@@ -1,11 +1,12 @@
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>
-#pragma execution_character_set("utf-8")
+#include <time.h>
 using namespace std;
 
 #define BOARD_WIDTH 40
 #define BOARD_HEGIT 30
+#define BULLET_COOLTIME 1
 wchar_t Board[BOARD_HEGIT][BOARD_WIDTH];
 
 struct Object
@@ -14,7 +15,20 @@ struct Object
 	wchar_t image[10]; // 플레이어 모습
 };
 
+enum DirectionType
+{
+	Up,
+	Down
+};
+
 Object player;
+Object bullet[30]; // 총알 여러개 방법
+time_t bulletDeltaTime = 0;
+
+void MoveBullet(DirectionType type)
+{
+	type == //
+}
 
 void SetBoard(const Object& obj) // 복사비용 아끼기 위해 레퍼런스 사용
 {
@@ -32,8 +46,9 @@ void SetBoard(const Object& obj) // 복사비용 아끼기 위해 레퍼런스 사용
 
 int main()
 {
-	SetConsoleOutputCP(65001);
 	system("mode con:cols=80 lines=45"); // 창크기 설정
+
+	wcout.imbue(locale("Kor"));
 
 	CONSOLE_CURSOR_INFO cursorInfo;
 	cursorInfo.bVisible = false;
@@ -56,6 +71,26 @@ int main()
 			case 'w':
 			case 'W':
 				player.posY -= 1;
+				break;
+			case ' ':
+			{
+
+
+				// 스페이스바 누르고 시간 체크
+				bool CoolTimefunc(bulletDeltaTime, BULLET_COOLTIME)
+				{
+					//쿨타임 계산 후 반환
+				}
+
+				time_t currentTime = clock(); // 현재 흐른 시간 반환
+				double diffTime = static_cast<double>((currentTime - bulletDeltaTime)) / CLOCKS_PER_SEC;
+
+				if (diffTime >= BULLET_COOLTIME)
+				{
+					bulletDeltaTime = clock();
+					// 총알 생성
+				}
+			}
 				break;
 			default:
 				break;
@@ -85,6 +120,9 @@ int main()
 				Board[h][w] = L' ';
 			}
 		}
+
+		wcout << endl;
+		wcout << L"점수";
 
 		Sleep(20); // 잠시 멈추는 기능 20 / 1000 초
 	}
@@ -123,6 +161,13 @@ int main()
 4. 총알과 적이 부딪히면 적 제거 + 총알 제거 +알파 (시간 남으면 해보기)
 5. 필수 숙제 : 복습 - cpp파셔서 직접 만들어보기
 */
+
+/* 03/02 숙제
+1. 함수화 하기 - 용도별로
+1-1 플레이어 총알 / 적 총알 - 함수화 고려
+2. 오늘한거 복습
+*/
+
 
 
 /*
