@@ -7,12 +7,14 @@ using namespace std;
 #define BOARD_WIDTH 40
 #define BOARD_HEGIT 30
 #define BULLET_COOLTIME 1
-wchar_t Board[BOARD_HEGIT][BOARD_WIDTH];
+wchar_t board[BOARD_HEGIT][BOARD_WIDTH];
+wchar_t prevBoard[BOARD_HEGIT][BOARD_WIDTH]; // 이전 보드 내용 저장
 
 struct Object
 {
 	int posX, posY;
 	wchar_t image[10]; // 플레이어 모습
+	int hp;
 };
 
 enum DirectionType
@@ -25,10 +27,10 @@ Object player;
 Object bullet[30]; // 총알 여러개 방법
 time_t bulletDeltaTime = 0;
 
-void MoveBullet(DirectionType type)
-{
-	type == //
-}
+//void MoveBullet(DirectionType type)
+//{
+//	type == //
+//}
 
 void SetBoard(const Object& obj) // 복사비용 아끼기 위해 레퍼런스 사용
 {
@@ -40,7 +42,7 @@ void SetBoard(const Object& obj) // 복사비용 아끼기 위해 레퍼런스 사용
 			break;
 		}
 
-		Board[obj.posY][obj.posX + imageIdx] = obj.image[imageIdx++];
+		board[obj.posY][obj.posX + imageIdx] = obj.image[imageIdx++];
 	}
 }
 
@@ -62,7 +64,7 @@ int main()
 
 	while (true)
 	{
-		system("cls");
+		//system("cls");
 		
 		if (_kbhit() != 0) // 키보드를 눌렀다면,
 		{
@@ -75,13 +77,13 @@ int main()
 			case ' ':
 			{
 
-
+				/*
 				// 스페이스바 누르고 시간 체크
 				bool CoolTimefunc(bulletDeltaTime, BULLET_COOLTIME)
 				{
 					//쿨타임 계산 후 반환
 				}
-
+				*/
 				time_t currentTime = clock(); // 현재 흐른 시간 반환
 				double diffTime = static_cast<double>((currentTime - bulletDeltaTime)) / CLOCKS_PER_SEC;
 
@@ -106,10 +108,14 @@ int main()
 		{
 			for (size_t w = 0; w < BOARD_WIDTH; w++)
 			{
-				wcout << Board[h][w];
+				if (prevBoard[h][w] != board[h][w])
+				{
+					COORD pos = { w , h};
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+					wcout << board[h][w];
+				}
 			}
-
-			wcout << endl;
+			//wcout << endl;
 		}
 
 		// 게임 보드 초기화
@@ -117,11 +123,32 @@ int main()
 		{
 			for (size_t w = 0; w < BOARD_WIDTH; w++)
 			{
-				Board[h][w] = L' ';
+				prevBoard[h][w] = board[h][w];
+				board[h][w] = L' ';
 			}
 		}
 
-		wcout << endl;
+		wchar_t Score[10] = {};
+		wsprintf(Score, L"Score : %d", player.hp);
+
+		COORD pos = { 0, BOARD_HEGIT + 3 };
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+
+		for (size_t i = 0; i < 10; i++)
+		{
+			if (Score[i] != L'\0')
+			{
+				wcout << Score[i];
+			}
+			else
+			{
+				for (;i < 10; i++)
+				{
+					wcout << L' ';
+				}
+				break;
+			}
+		}
 		wcout << L"점수";
 
 		Sleep(20); // 잠시 멈추는 기능 20 / 1000 초
@@ -167,8 +194,6 @@ int main()
 1-1 플레이어 총알 / 적 총알 - 함수화 고려
 2. 오늘한거 복습
 */
-
-
 
 /*
 기획
